@@ -3,6 +3,7 @@ package com.alexzolotov.nlp
 import java.lang.Math.log
 import java.util.HashMap
 import java.util.Map
+import java.util.Set
 
 /**
  * Classifier model. It is data holder for classification information.
@@ -21,16 +22,21 @@ class NaiveBayesModel(val lengths: Map<String, Int> = HashMap<String, Int>(),
      * Calculation logarithmic word probability {code}(log(P(w|c)){code} with add-one smoothing
      * in given class
      */
-    fun wordLogProbability(c: String, word: String): Double =
-    log((wordCount[c].orEmpty().getOrElse(word, {0}).toDouble() + 1.0) /
-    (lengths.getOrElse(c, {0}) + dictionarySize))
+    fun wordLogProbability(c: String, word: String) =
+        log((wordCount[c].orEmpty().getOrElse(word, {0}).toDouble() + 1.0) /
+        (lengths.getOrElse(c, {0}) + dictionarySize))
 
     /**
      * Calculation logarithmic class probability {code}(log(P(c))){code}
      */
-    fun classLogProbability(c: String): Double = log(docCount.getOrElse(c, {0}).toDouble() / overallDocuments())
+    fun classLogProbability(c: String) = log(docCount.getOrElse(c, {0}).toDouble() / overallDocuments())
 
     fun overallDocuments() = docCount.values().reduce { x, y -> x + y }
+
+    val classes : Set<String>
+        get() {
+            return docCount.keySet();
+        }
 
 }
 
