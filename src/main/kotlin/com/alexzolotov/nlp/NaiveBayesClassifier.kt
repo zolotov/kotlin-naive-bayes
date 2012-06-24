@@ -10,7 +10,7 @@ class NaiveBayesClassifier(val model: NaiveBayesModel, val tokenize: (String) ->
     public fun classify(text: String): String {
         return model.classes.map { (it: String) ->
             #(it, calculateProbability(it, text))
-        }.sortBy{it._2}.first()._1
+        }.sortBy{it._2}.last()._1
     }
 
     /**

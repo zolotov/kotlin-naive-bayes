@@ -24,7 +24,7 @@ class NaiveBayesLearningToolTest {
         expect(hashMap("test1" to 4, "test2" to 2)) { model.lengths }
         expect(hashMap("test1" to 2, "test2" to 1)) { model.docCount }
         expect(hashMap(
-                "test1" to hashMap("hello" to 2, "world" to 1),
+                "test1" to hashMap("hello" to 3, "world" to 1),
                 "test2" to hashMap("hello" to 1, "man" to 1))
         ) { model.wordCount }
         expect(3) { model.dictionarySize }

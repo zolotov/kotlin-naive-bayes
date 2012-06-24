@@ -13,10 +13,10 @@ class UtilsTest {
     }
 
     test fun sortBy() {
-        expect(arrayList(1 to 3, 2 to 2)) {
+        expect(arrayList(2 to 2, 1 to 3)) {
             arrayList(2 to 2, 1 to 3).sortBy { it._2 }
         }
-        expect(arrayList(2 to 2, 1 to 3)) {
+        expect(arrayList(1 to 3, 2 to 2)) {
             arrayList(2 to 2, 1 to 3).sortBy { it._1 }
         }
     }
