@@ -7,6 +7,7 @@
 	<groupId>com.alexzolotov</groupId>
 	<artifactId>naive-bayes-kotlin</artifactId>
 	<version>1.0</version>
+	<description>Kotlin implementation of Naive Bayes classification algorithm</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -61,22 +62,6 @@
 					<includes>
 						<include>**/*Test.class</include>
 					</includes>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>exec-maven-plugin</artifactId>
-				<version>1.2.1</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>exec</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<mainClass>com.alexzolotov.nlp.namespace</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>
