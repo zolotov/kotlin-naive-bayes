@@ -1,12 +1,11 @@
 package com.alexzolotov.nlp
 
-import kotlin.test.expect
 import org.testng.annotations.Test as test
 
 class NaiveBayesLearningToolTest {
 
     test fun createDictionary() {
-        val learningTool = com.alexzolotov.nlp.NaiveBayesLearningTool()
+        val learningTool = NaiveBayesLearningTool()
         learningTool.addExample("hello world", "test1")
         learningTool.addExample("hello man", "test2")
         expect(hashSet("hello", "world", "man")) {
@@ -15,7 +14,7 @@ class NaiveBayesLearningToolTest {
     }
 
     test fun createModel() {
-        val learningTool = com.alexzolotov.nlp.NaiveBayesLearningTool()
+        val learningTool = NaiveBayesLearningTool()
         learningTool.addExample("hello world", "test1")
         learningTool.addExample("hello hello", "test1")
         learningTool.addExample("hello man", "test2")
